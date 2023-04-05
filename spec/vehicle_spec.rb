@@ -15,6 +15,7 @@ RSpec.describe Vehicle do
       expect(@vehicle.name).to eq("Honda")
       expect(@vehicle.make).to eq("Civic")
       expect(@vehicle.speeding).to eq(false)
+      expect(@vehicle.passengers).to eq([])
     end
   end
 
@@ -29,6 +30,22 @@ RSpec.describe Vehicle do
       @vehicle.speed
       
       expect(@vehicle.speeding?).to eq(true)
+    end
+  end
+
+  before(:each) do
+    @charlie = Passenger.new({"name" => "Charlie", "age" => 18})
+    @jude = Passenger.new({"name" => "Jude", "age" => 20})
+    @taylor = Passenger.new({"name" => "Taylor", "age" => 12})
+  end
+
+  describe '#add passenger' do
+    it 'can add passengers to passengers array' do
+      @vehicle.add_passenger(@charlie)
+      @vehicle.add_passenger(@jude)
+      @vehicle.add_passenger(@taylor)
+
+      expect(@vehicle.passengers).to eq([@charlie, @jude, @taylor])
     end
   end
 end
