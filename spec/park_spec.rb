@@ -58,4 +58,19 @@ RSpec.describe Park do
       expect(@yo_yo_park.passengers).to eq([@mia, @theo])
     end
   end
+
+  describe '#revenue' do
+    it 'calculates the revenue' do
+      @forest_park.add_vehicle(@vehicle_1)
+      @yo_yo_park.add_vehicle(@vehicle_2)
+      @vehicle_1.add_passenger(@charlie)
+      @vehicle_1.add_passenger(@jude)
+      @vehicle_1.add_passenger(@taylor)
+      @vehicle_2.add_passenger(@mia)
+      @vehicle_2.add_passenger(@theo)
+
+      expect(@forest_park.revenue).to eq(40)
+      expect(@yo_yo_park.revenue).to eq(5)
+    end
+  end
 end
