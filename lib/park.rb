@@ -18,4 +18,12 @@ class Park
       vehicle.passengers
     end.flatten
   end
+
+  def revenue
+    park_revenue = 0
+    @vehicles.map do |vehicle|
+      park_revenue = vehicle.num_adults * @admission_price
+    end
+    park_revenue
+  end
 end
