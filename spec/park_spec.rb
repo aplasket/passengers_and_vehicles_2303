@@ -14,6 +14,7 @@ RSpec.describe Park do
       expect(@forest_park.name).to eq('forest park')
       expect(@forest_park.admission_price).to eq(20)
       expect(@forest_park.vehicles).to eq([])
+      expect(@forest_park.passengers).to eq([])
     end
   end
 
@@ -24,8 +25,9 @@ RSpec.describe Park do
   
   describe '#vehicle array' do
     it 'can add vehicle objects and return an array' do
-      @park.add_vehicle(@vehicle_1)
-      @park.add_vehicle(@vehicle_2)
+      @forest_park.add_vehicle(@vehicle_1)
+      @forest_park.add_vehicle(@vehicle_2)
+
       expect(@forest_park.vehicles).to eq([@vehicle_1, @vehicle_2])
     end
   end
