@@ -11,5 +11,10 @@ RSpec.describe Passenger do
       expect(@charlie).to be_a(Passenger)
       expect(@taylor).to be_a(Passenger)
     end
+
+    it 'has attributes' do
+      expect(@charlie.name).to eq("Charlie")
+      expect(@charlie.age).to eq(18)
+    end
   end
 end
