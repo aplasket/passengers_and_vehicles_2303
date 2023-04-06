@@ -14,9 +14,9 @@ class Park
   end
 
   def passengers
-    @vehicles.map do |vehicle|
+    @vehicles.flat_map do |vehicle|
       vehicle.passengers
-    end.flatten
+    end
   end
 
   def revenue

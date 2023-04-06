@@ -31,9 +31,10 @@ RSpec.describe Park do
     it 'can add vehicle objects and return an array' do
       @forest_park.add_vehicle(@vehicle_1)
       @yo_yo_park.add_vehicle(@vehicle_2)
+      @yo_yo_park.add_vehicle(@vehicle_3)
 
       expect(@forest_park.vehicles).to eq([@vehicle_1])
-      expect(@yo_yo_park.vehicles).to eq([@vehicle_2])
+      expect(@yo_yo_park.vehicles).to eq([@vehicle_2, @vehicle_3])
     end
   end
 
@@ -47,31 +48,33 @@ RSpec.describe Park do
 
   describe '#passenger array' do
     it 'can list all passengers' do
-      @forest_park.add_vehicle(@vehicle_1)
-      @yo_yo_park.add_vehicle(@vehicle_2)
       @vehicle_1.add_passenger(@charlie)
-      @vehicle_1.add_passenger(@jude)
-      @vehicle_1.add_passenger(@taylor)
       @vehicle_2.add_passenger(@mia)
       @vehicle_2.add_passenger(@theo)
+      @vehicle_3.add_passenger(@jude)
+      @vehicle_3.add_passenger(@taylor)
+      @forest_park.add_vehicle(@vehicle_1)
+      @yo_yo_park.add_vehicle(@vehicle_2)
+      @yo_yo_park.add_vehicle(@vehicle_3)
 
-      expect(@forest_park.passengers).to eq([@charlie, @jude, @taylor])
-      expect(@yo_yo_park.passengers).to eq([@mia, @theo])
+      expect(@forest_park.passengers).to eq([@charlie])
+      expect(@yo_yo_park.passengers).to eq([@mia, @theo, @jude, @taylor])
     end
   end
 
   describe '#revenue' do
     it 'calculates the revenue' do
-      @forest_park.add_vehicle(@vehicle_1)
-      @yo_yo_park.add_vehicle(@vehicle_2)
       @vehicle_1.add_passenger(@charlie)
-      @vehicle_1.add_passenger(@jude)
-      @vehicle_1.add_passenger(@taylor)
       @vehicle_2.add_passenger(@mia)
       @vehicle_2.add_passenger(@theo)
+      @vehicle_3.add_passenger(@jude)
+      @vehicle_3.add_passenger(@taylor)
+      @forest_park.add_vehicle(@vehicle_1)
+      @yo_yo_park.add_vehicle(@vehicle_2)
+      @yo_yo_park.add_vehicle(@vehicle_3)
 
-      expect(@forest_park.revenue).to eq(40)
-      expect(@yo_yo_park.revenue).to eq(5)
+      expect(@forest_park.revenue).to eq(20)
+      expect(@yo_yo_park.revenue).to eq(10)
     end
   end
 end
