@@ -16,8 +16,6 @@ RSpec.describe Park do
       expect(@forest_park.name).to eq('forest park')
       expect(@forest_park.admission_price).to eq(20)
       expect(@yo_yo_park.admission_price).to eq(5)
-      expect(@forest_park.vehicles).to eq([])
-      expect(@forest_park.passengers).to eq([])
     end
   end
 
@@ -28,6 +26,10 @@ RSpec.describe Park do
   end
   
   describe '#vehicle array' do
+    it 'starts with no vehicles' do
+      expect(@forest_park.vehicles).to eq([])
+    end
+
     it 'can add vehicle objects and return an array' do
       @forest_park.add_vehicle(@vehicle_1)
       @yo_yo_park.add_vehicle(@vehicle_2)
@@ -47,6 +49,10 @@ RSpec.describe Park do
   end
 
   describe '#passenger array' do
+    it 'starts with no passengers' do
+      expect(@forest_park.passengers).to eq([])
+    end
+
     it 'can list all passengers' do
       @vehicle_1.add_passenger(@charlie)
       @vehicle_2.add_passenger(@mia)
