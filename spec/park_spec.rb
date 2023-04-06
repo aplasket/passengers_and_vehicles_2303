@@ -24,6 +24,7 @@ RSpec.describe Park do
   before(:each) do
     @vehicle_1 = Vehicle.new("2001", "Honda", "Civic") 
     @vehicle_2 = Vehicle.new("2011", "VW", "Bug")
+    @vehicle_3 = Vehicle.new("2022", "Toyota", "Prius")
   end
   
   describe '#vehicle array' do
